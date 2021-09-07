@@ -1,0 +1,50 @@
+#ZendeskTeam_AnsCalls_Count
+
+SELECT count(pause_epoch) as IB_AnsCalls_Count
+FROM vicidial_agent_log
+WHERE 
+USER IN ("agent527",
+"agent598",
+"agent473",
+"agent599")
+and campaign_id="pathaozn" and `status`="IN" and date (event_time)="2021-08-04";
+
+#ZendeskTeam_OBSCalls_Count
+
+SELECT count(pause_epoch) as IB_AnsCalls_Count
+FROM vicidial_agent_log
+WHERE 
+USER IN ("agent527",
+"agent598",
+"agent473",
+"agent599")
+AND campaign_id = "pathaozn"
+and status IN ("LOFS","LORS","OCS","OFS","ORS","OSS","OZS")
+and date(event_time) = '2021-09-05'
+
+
+#ZendeskTeam_OBUCalls_Count
+
+SELECT count(pause_epoch) as IB_AnsCalls_Count
+FROM vicidial_agent_log
+WHERE 
+USER IN ("agent527",
+"agent598",
+"agent473",
+"agent599")
+AND campaign_id = "pathaozn"
+and status IN ("LOCU","LOFU","LORU","OCU","OFU","OSU","OZU","ORU","PU")
+and date(event_time) = '2021-09-05'
+
+#ZendeskTeam_PSCalls_Count
+
+SELECT count(pause_epoch) as IB_AnsCalls_Count
+FROM vicidial_agent_log
+WHERE 
+USER IN ("agent527",
+"agent598",
+"agent473",
+"agent599")
+AND campaign_id = "pathaozn"
+and status IN ("PS")
+and date(event_time) = '2021-09-06'
