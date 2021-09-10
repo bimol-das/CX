@@ -1,4 +1,0 @@
-SELECT COUNT(pause_epoch) as OBU_Calls
-FROM vicidial_agent_log
-WHERE campaign_id IN("pathaocc","pathaozn") AND`status`IN ("LOCU","LOFU","LORU","OCU","OFU","OSU","OZU","ORU")
-AND DATE(event_time)="2021-09-09"
