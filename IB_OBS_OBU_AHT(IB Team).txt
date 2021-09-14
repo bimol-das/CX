@@ -16,7 +16,9 @@ USER IN ("agent509","agent434","agent435","agent455","agent456","agent457","Azma
 AND campaign_id = "pathaocc"
 and status IN ("LOFS","LORS","OCS","OFS","ORS","OSS","OZS")
 and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS DATE))
-  AND UNIX_TIMESTAMP(event_time) <= UNIX_TIMESTAMP(CAST(NOW() AS DATE))),IB_OBU_AHT as (Select 
+  AND UNIX_TIMESTAMP(event_time) <= UNIX_TIMESTAMP(CAST(NOW() AS DATE))),
+ 
+ IB_OBU_AHT as (Select 
 AVG(pause_sec +talk_sec + dispo_sec + dead_sec) as IB_OBU_AHT 
 from vicidial_agent_log
 where
