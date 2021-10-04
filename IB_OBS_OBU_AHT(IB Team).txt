@@ -2,7 +2,7 @@ With IB_IB_AHT as (Select
 AVG(pause_sec + talk_sec + dispo_sec + dead_sec) as IB_IB_AHT
 from vicidial_agent_log
 where
-USER IN ("agent509","agent434","agent435","agent455","agent456","agent457","Azman","Tawfiq","agent528","agent535","agent620","agent648")
+USER IN ('agent509','agent434','agent435','agent457','Azman','Tawfiq','agent528','agent535','agent620','agent648','agent696','agent697','agent698','agent699','agent700','agent701')
 AND campaign_id = "pathaocc"
 and status = "in"
 and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS DATE))
