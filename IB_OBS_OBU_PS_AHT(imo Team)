@@ -2,7 +2,7 @@ With IMO_IB_AHT as (Select
 AVG(pause_sec + talk_sec + dispo_sec + dead_sec) as IMO_IB_AHT
 from vicidial_agent_log
 where
-USER IN ("agent527","agent598","agent473","agent599") 
+USER IN ('agent527','agent599','agent702','agent703')
 and campaign_id="pathaozn"
 and status = "in"
 and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS DATE))
@@ -12,7 +12,7 @@ IMO_OBS_AHT as (Select
 AVG(pause_sec +talk_sec + dispo_sec + dead_sec) as IMO_OBS_AHT 
 from vicidial_agent_log
 where
-USER IN ("agent527","agent598","agent473","agent599") 
+USER IN ('agent527','agent599','agent702','agent703')
 and campaign_id="pathaozn"
 and status IN ("LOFS","LORS","OCS","OFS","ORS","OSS","OZS")
 and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS DATE))
@@ -20,7 +20,7 @@ and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS 
 AVG(pause_sec +talk_sec + dispo_sec + dead_sec) as IMO_OBU_AHT 
 from vicidial_agent_log
 where
-USER IN ("agent527","agent598","agent473","agent599") 
+USER IN ('agent527','agent599','agent702','agent703')
 and campaign_id="pathaozn"
 and status IN ("LOCU","LOFU","LORU","OCU","OFU","OSU","OZU","ORU","PU")
 and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS DATE))
@@ -30,7 +30,7 @@ IMO_PS_AHT as (Select
 AVG(pause_sec + talk_sec + dispo_sec + dead_sec) as IMO_PS_AHT 
 from vicidial_agent_log
 where
-USER IN ("agent527","agent598","agent473","agent599") 
+USER IN ('agent527','agent599','agent702','agent703')
 and campaign_id="pathaozn"
 and status IN ("PS")
 and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS DATE))
