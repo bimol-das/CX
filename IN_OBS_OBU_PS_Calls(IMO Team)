@@ -1,7 +1,7 @@
 With IMO_IB_IN as (Select count(pause_epoch) as IMO_IB_IN
 from vicidial_agent_log
 where
-USER IN ("agent527","agent598","agent473","agent599")
+USER IN ('agent527', 'agent599', 'agent702', 'agent703')
 and campaign_id="pathaozn"
 and status = "in"
 and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS DATE))
@@ -10,7 +10,7 @@ and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS 
 IMO_OBS as (Select count(pause_epoch) as IMO_OBS
 from vicidial_agent_log
 where
-USER IN ("agent527","agent598","agent473","agent599")
+USER IN  ('agent527', 'agent599', 'agent702', 'agent703')
 and campaign_id="pathaozn"
 and status IN ("LOFS","LORS","OCS","OFS","ORS","OSS","OZS")
 and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS DATE))
@@ -19,7 +19,7 @@ and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS 
 IMO_OBU as (Select count(pause_epoch) as IMO_OBU
 from vicidial_agent_log
 where
-USER IN ("agent527","agent598","agent473","agent599")
+USER IN  ('agent527', 'agent599', 'agent702', 'agent703')
 and campaign_id="pathaozn"
 and status IN ("LOCU","LOFU","LORU","OCU","OFU","OSU","OZU","ORU")
 and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS DATE))
@@ -28,7 +28,7 @@ and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS 
 IMO_PS as (Select count(pause_epoch) as IMO_PS
 from vicidial_agent_log
 where
-USER IN ("agent527","agent598","agent473","agent599")
+USER IN  ('agent527', 'agent599', 'agent702', 'agent703')
 and campaign_id="pathaozn"
 and status IN ("PS")
 and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS DATE))
