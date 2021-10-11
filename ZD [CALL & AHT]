@@ -1,0 +1,42 @@
+With ZD_IB_IN as (Select count(pause_epoch) as ZD_IB_IN,
+AVG(pause_sec + talk_sec + dispo_sec + dead_sec) as ZD_IB_AHT
+from vicidial_agent_log
+where
+USER IN ("agent102","agent068","agent066")
+and campaign_id="pathaozn"
+and status = "in"
+and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS DATE))
+  AND UNIX_TIMESTAMP(event_time) <= UNIX_TIMESTAMP(CAST(NOW() AS DATE))),
+
+ZD_OBS as (Select count(pause_epoch) as ZD_OBS,
+AVG(pause_sec + talk_sec + dispo_sec + dead_sec) as ZD_OBS_AHT
+from vicidial_agent_log
+where
+USER IN ("agent102","agent068","agent066")
+and campaign_id="pathaozn"
+and status IN ("LOFS","LORS","OCS","OFS","ORS","OSS","OZS")
+and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS DATE))
+  AND UNIX_TIMESTAMP(event_time) <= UNIX_TIMESTAMP(CAST(NOW() AS DATE))),
+	
+ZD_OBU as (Select count(pause_epoch) as ZD_OBU,
+AVG(pause_sec + talk_sec + dispo_sec + dead_sec) as ZD_OBU_AHT
+from vicidial_agent_log
+where
+USER IN ("agent102","agent068","agent066")
+and campaign_id="pathaozn"
+and status IN ("LOCU","LOFU","LORU","OCU","OFU","OSU","OZU","ORU")
+and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS DATE))
+  AND UNIX_TIMESTAMP(event_time) <= UNIX_TIMESTAMP(CAST(NOW() AS DATE))),
+
+ZD_PS as (Select count(pause_epoch) as ZD_PS,
+AVG(pause_sec + talk_sec + dispo_sec + dead_sec) as ZD_PS_AHT
+from vicidial_agent_log
+where
+USER IN ("agent102","agent068","agent066")
+and campaign_id="pathaozn"
+and status IN ("PS")
+and UNIX_TIMESTAMP(event_time) >= UNIX_TIMESTAMP(CAST(NOW() - INTERVAL 1 DAY AS DATE))
+  AND UNIX_TIMESTAMP(event_time) <= UNIX_TIMESTAMP(CAST(NOW() AS DATE)))
+
+
+Select * from ZD_IB_IN,ZD_OBS,ZD_OBU,ZD_PS
